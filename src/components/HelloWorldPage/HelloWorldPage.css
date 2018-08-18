@@ -1,15 +1,15 @@
-.App {
+.HelloWorldPage {
     padding: 20px;
 }
 
-.App h1 {
+.HelloWorldPage h1 {
     font-size: 26px;
 }
 
-.App input {
+.HelloWorldPage input {
     padding: 10px;
 }
 
-.App hr {
+.HelloWorldPage hr {
     margin-top: 20px;
 }

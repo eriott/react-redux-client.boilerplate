@@ -7,7 +7,7 @@ var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var publicPath = 'http://localhost:8050/public/assets';
-var cssName = process.env.NODE_ENV === 'production' ? 'styles-[hash].css' : 'styles.css';
+var cssName = process.env.NODE_ENV === 'production' ? '[name]-[chunkhash].css' : '[name].css';
 var jsName = process.env.NODE_ENV === 'production' ? 'bundle-[hash].js' : 'bundle.js';
 
 var plugins = [
@@ -20,8 +20,10 @@ var plugins = [
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
     }
   }),
-  new ExtractTextPlugin(cssName),
-  new MiniCssExtractPlugin({filename: cssName})
+  new MiniCssExtractPlugin({
+    filename: "styles.css",
+    chunkFilename: "[id].css"
+  })
 ];
 
 if (process.env.NODE_ENV === 'production') {
@@ -51,8 +53,7 @@ module.exports = {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/,
-        use: [
-          process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+        use: [MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader'
         ],

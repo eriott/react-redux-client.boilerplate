@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import './App.css';
+import './HelloWorldPage.css';
 
 const propTypes = {
   initialName: PropTypes.string
@@ -11,7 +11,7 @@ const defaultProps = {
   initialName: 'Аноним'
 };
 
-class App extends Component {
+class HelloWorldPage extends Component {
   constructor(props) {
     super(props);
 
@@ -52,7 +52,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App'>
+      <div className='HelloWorldPage'>
         <h1>Hello World!</h1>
         <div>
           <p>Введите Ваше имя:</p>
@@ -64,7 +64,7 @@ class App extends Component {
   }
 }
 
-App.propTypes = propTypes;
-App.defaultProps = defaultProps;
+HelloWorldPage.propTypes = propTypes;
+HelloWorldPage.defaultProps = defaultProps;
 
-export default App;
+export default HelloWorldPage;
